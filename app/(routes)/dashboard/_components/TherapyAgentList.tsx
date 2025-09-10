@@ -2,7 +2,7 @@ import { AITherapistList } from '@/shared/list'
 import React from 'react'
 import TherapistAgentCard from './TherapistAgentCard'
 
-const DoctorAgentList = () => {
+const TherapyAgentList = () => {
   return (
     <div>
       <h2 className="font-bold text-xl">AI specialist Therapist</h2>
@@ -17,4 +17,4 @@ const DoctorAgentList = () => {
   )
 }
 
-export default DoctorAgentList
+export default TherapyAgentList

@@ -2,7 +2,7 @@
 import React from 'react'
 import HistoryList from './_components/HistoryList'
 import { Button } from '@/components/ui/button'
-import DoctorAgentList from '@/app/(routes)/dashboard/_components/DoctorAgentList'
+import TherapyAgentList from '@/app/(routes)/dashboard/_components/TherapyAgentList'
 import AddNewSessionDialog from './_components/AddNewSessionDialog'
 
 const Dashboard
@@ -13,8 +13,8 @@ const Dashboard
         <h2 className="font-bold text-2xl">My Dashboard</h2>
         <AddNewSessionDialog />
       </div>
-      <HistoryList />
-      <DoctorAgentList />
+      <HistoryList/>
+      <TherapyAgentList />
     </div>
   )
 }

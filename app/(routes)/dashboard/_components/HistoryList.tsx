@@ -1,10 +1,25 @@
+"use client"
 import { Button } from '@/components/ui/button'
 import Image from 'next/image'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import AddNewSessionDialog from './AddNewSessionDialog'
+import axios from 'axios'
+import HistoryTable from './HistoryTable'
+import { SessionDetail } from '../therapy-agent/[sessionId]/page'
 
 const HistoryList = () => {
-  const [historyList, setHistoryList] = useState([])
+  const [historyList, setHistoryList] = useState<SessionDetail[]>([]);
+
+  useEffect(() => {
+    GetHistoryList();
+  }, [])
+
+  const GetHistoryList = async () => {
+    const result= await axios.get('/api/session-chat?sessionId=all');
+    console.log(result.data);
+    setHistoryList(result.data);
+  }
+
   return (
     <div className='mt-10'>
       {historyList.length == 0 ? (
@@ -17,6 +32,7 @@ const HistoryList = () => {
       ) : (
         <div>
           {/* Render history list here */}
+          <HistoryTable historyList={historyList}/>
         </div>
       )}
     </div>
