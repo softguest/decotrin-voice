@@ -57,9 +57,9 @@ const TherapyProcess = () => {
                 <p className="text-muted-foreground leading-relaxed">{step.description}</p>
 
                 {/* Connector Line (not on last item) */}
-                {index < steps.length - 1 && (
+                {/* {index < steps.length - 1 && (
                   <div className="hidden lg:block absolute top-1/2 left-full w-full h-0.5 bg-border transform -translate-y-1/2 translate-x-4"></div>
-                )}
+                )} */}
               </div>
             );
           })}
