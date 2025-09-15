@@ -1,0 +1,68 @@
+import { Button } from "@/components/ui/button";
+import { Check } from "lucide-react";
+// import therapyIllustration from "@/assets/therapy-illustration.jpg";
+
+const PsychotherapyHighlight = () => {
+  const benefits = [
+    "Personalized treatment plans tailored to your specific needs",
+    "Evidence-based therapeutic approaches proven effective",
+    "Safe, confidential environment for healing and growth",
+    "Flexible scheduling to accommodate your lifestyle",
+    "Collaborative approach with ongoing progress assessment"
+  ];
+
+  return (
+    <section className="py-20 bg-background">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          {/* Image */}
+          <div className="order-2 lg:order-1">
+            <div className="relative">
+              <img
+                src="/bg00.jpg"
+                alt="Professional therapy session"
+                className="rounded-2xl shadow-therapeutic w-full h-auto"
+              />
+              <div className="absolute inset-0 bg-gradient-to-tr from-primary/10 to-transparent rounded-2xl"></div>
+            </div>
+          </div>
+
+          {/* Content */}
+          <div className="order-1 lg:order-2">
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
+              Professional Psychotherapy That Works
+            </h2>
+            <p className="text-lg text-muted-foreground mb-8">
+              Our psychotherapy services are designed to help you understand yourself better, 
+              develop healthy coping mechanisms, and create lasting positive change in your life.
+            </p>
+
+            {/* Benefits List */}
+            <div className="space-y-4 mb-8">
+              {benefits.map((benefit, index) => (
+                <div key={index} className="flex items-start space-x-3">
+                  <div className="flex-shrink-0 w-6 h-6 bg-primary/10 rounded-full flex items-center justify-center mt-0.5">
+                    <Check className="w-4 h-4 text-primary" />
+                  </div>
+                  <p className="text-foreground">{benefit}</p>
+                </div>
+              ))}
+            </div>
+
+            {/* CTA Buttons */}
+            <div className="flex flex-col sm:flex-row gap-4">
+              <Button size="lg" variant="default">
+                Start Your Journey
+              </Button>
+              <Button size="lg" variant="outline">
+                Learn More About Our Approach
+              </Button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default PsychotherapyHighlight;

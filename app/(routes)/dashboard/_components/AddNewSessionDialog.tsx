@@ -12,13 +12,13 @@ import {
 import { Button } from '@/components/ui/button'
 import { Textarea } from '@/components/ui/textarea'
 import { ArrowRight, Loader2 } from 'lucide-react'
-import TherapistAgentCard, { therapistAgent } from './TherapistAgentCard'
+import { therapistAgent } from './TherapistAgentCard'
 import { useRouter } from 'next/navigation'
 import axios from 'axios'
 import { useAuth } from '@clerk/nextjs'
-import { SessionDetail } from '../therapy-agent/[sessionId]/page'
 import HistoryList from './HistoryList'
 import SuggestedTherapistCard from './SuggestedTherapistCard'
+import { SessionDetail } from '../therapy-agent/[sessionId]/page'
 
 const AddNewSessionDialog = () => {
   const [note, setNote] = useState<string>()
@@ -55,23 +55,33 @@ const AddNewSessionDialog = () => {
   }
 
   const onStartSession = async () => {
-    setLoading(true)
+  setLoading(true)
+  try {
     const result = await axios.post('/api/session-chat', {
       notes: note,
       selectedTherapist: selectedTherapist
     })
 
     console.log(result.data)
+
     if (result.data?.sessionId) {
       router.push('/dashboard/therapy-agent/' + result.data.sessionId)
+      return; // stop execution after redirect
     }
+
+    console.error("No sessionId returned from API")
+  } catch (err) {
+    console.error(err)
+  } finally {
     setLoading(false)
   }
+}
+
 
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button className='mt-3' disabled={!paidUser&&HistoryList?.length>=1}>+ Start A Therapy Session</Button>
+        <Button variant="therapeutic2" className='mt-3' disabled={!paidUser&&HistoryList?.length>=1}>+ Start A Therapy Session</Button>
       </DialogTrigger>
       <DialogContent>
         <DialogHeader>
@@ -109,13 +119,10 @@ const AddNewSessionDialog = () => {
             <Button variant={'outline'}>Cancel</Button>
           </Dialog>
           <Dialog>
-            {!suggestedTherapists ? 
-            <Button disabled={ !note?.trim() || loading } onClick={OnClickNext}>
-                Next {loading ? <Loader2 className="animate-spin" /> : <ArrowRight />}
-            </Button>
+            <Button disabled={ !note || loading } onClick={OnClickNext}>
+                Next {loading ? <Loader2 className="animate-spin" /> : <ArrowRight />}</Button>
             : <Button disabled={loading || !selectedTherapist} onClick={()=>onStartSession()}>Start Therapy
-            {loading ? <Loader2 className='animate-spin' /> : <ArrowRight />} </Button>
-            // {/* } */}
+              {loading ? <Loader2 className='animate-spin' /> : <ArrowRight />} </Button>
           </Dialog>
         </DialogFooter>   
       </DialogContent>

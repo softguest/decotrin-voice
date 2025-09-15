@@ -140,7 +140,7 @@ const TherapistAgentCard = ({ therapistAgent }: Props) => {
   return (
     <div className="relative">
       {therapistAgent.subscriptionRequired&&
-      <Badge className="absolute m-2 right-0">Premium</Badge>
+      <Badge variant="badgeOut" className="absolute m-2 right-0">Premium</Badge>
       }
       <Image 
         src={therapistAgent.image} 
@@ -151,10 +151,11 @@ const TherapistAgentCard = ({ therapistAgent }: Props) => {
       />
       <h2 className='font-bold text-lg'>{therapistAgent.specialist}</h2>
       <p className='line-clamp-2 mt-1 text-sm text-gray-500'>{therapistAgent.description}</p>
-      <Button 
-        onClick={onStartSession} 
-        className="w-full mt-2" 
-        disabled={!paidUser&&therapistAgent.subscriptionRequired}
+      <Button
+        variant="therapeutic"
+        onClick={onStartSession}
+        className="w-full mt-2"
+        disabled={!paidUser && therapistAgent.subscriptionRequired}
       >
         Start Session {loading?<Loader2Icon className='animate-spin'/> : <IconArrowRight />}</Button>
     </div>

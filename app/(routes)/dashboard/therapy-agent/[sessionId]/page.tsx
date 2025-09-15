@@ -10,6 +10,7 @@ import { Button } from '@/components/ui/button';
 import  Vapi  from '@vapi-ai/web';
 import Provider from '@/provider';
 import { toast } from 'sonner';
+import { press } from 'framer-motion';
 export type SessionDetail = {
   id: number,
   notes: string,
@@ -41,97 +42,207 @@ function TherapyVoiceAgent () {
     }, [sessionId]);
 
     const GetSessionDetails = async () => {
-        const result= await axios.get('/api/session-chat?sessionId='+sessionId);
+        const result = await axios.get('/api/session-chat?sessionId=' + sessionId);
         console.log(result.data);
         setSessionDetail(result.data);
     }
 
-    const StartCall = () => {
-      setLoading(true);
-      const vapi = new Vapi(process.env.NEXT_PUBLIC_VAPI_API_KEY!);
-      setVapiInstance(vapi);
 
-      const VapiAgentConfig = {
-        name: 'AI War Trauma Therapist',
-        firstMessage:"hi there hopw you are feeling well today?",
-        transcriber:{
-          provider:'assembly-ai',
-          language: 'en'
+    // const StartCall = () => {
+    //   setLoading(true);
+    //   const vapi = new Vapi(process.env.NEXT_PUBLIC_VAPI_API_KEY!);
+    //   setVapiInstance(vapi); // for future reference
+
+    //   const VapiAgentConfig = {
+    //     name: 'AI Trauma Therapist',
+    //     firstMessage: "hi there, hope you are feeling well today?",
+    //     transcriber: {
+    //       provider: 'assembly-ai',
+    //       language: 'en'
+    //     },
+    //     voice: {
+    //       provider: 'deepgram',
+    //       voiceId: sessionDetail?.selectedTherapist?.voiceId
+    //     },
+    //     model: {
+    //       provider: 'google',
+    //       model: 'gemini-2.0-flash',
+    //       messages: [
+    //         {
+    //           role: 'system',
+    //           content: sessionDetail?.selectedTherapist?.agentPrompt || 'Provide empathetic support.'
+    //         } 
+    //       ]
+    //     }
+    //   };
+
+    //   //@ts-ignore
+    //   // vapi.start(VapiAgentConfig);
+    //   vapi.start(process.env.NEXT_PUBLIC_VAPI_VOICE_ASSISTANT_ID!);
+
+    //   // Use local variable 'vapi' here
+    //   vapi.on('call-start', () => {
+    //     console.log('Call started');
+    //     setCallStarted(true);
+    //   });
+
+    //   vapi.on('call-end', () => {
+    //     console.log('Call ended');
+    //     setCallStarted(false);
+    //   });
+
+    //   vapi.on('message', (message) => {
+    //     if (message.type === 'transcript') {
+    //       const { role, transcriptType, transcript } = message;
+    //       console.log(`${role}: ${transcript}`);
+    //       if (transcriptType === 'partial') {
+    //         setLiveTranscript(transcript);
+    //         setCurrentRole(role);
+    //       } else if (transcriptType === 'final') {
+    //         setMessages((prev: any) => [...prev, { role, text: transcript }]);
+    //         setLiveTranscript(''); 
+    //         setCurrentRole(null);
+    //       }
+    //     }
+    //   });
+
+    //   vapi.on('speech-start', () => {
+    //     console.log('Assistant started speaking');
+    //     setCurrentRole('assistant');
+    //   });
+
+    //   vapi.on('speech-end', () => {
+    //     console.log('Assistant stopped speaking');
+    //     setCurrentRole('user');
+    //   });
+
+    //   setLoading(false);
+    // };
+
+
+    // const endCall = async () => {
+    //   setLoading(true);
+    //   if (!vapiInstance) return;
+    //     vapiInstance.stop();
+
+    //     vapiInstance.off('call-start');
+    //     vapiInstance.off('call-end');
+    //     vapiInstance.off('message');
+    //     vapiInstance.off('speech-start');
+    //     vapiInstance.off('speech-end');
+
+
+    //     setCallStarted(false);
+    //     vapiInstance.removeAllListeners();
+    //     setVapiInstance(null); 
+    //     toast.success('Your report is generated!')
+
+    //     const result = await GenerateReport()
+    //     setLoading(false);
+    //     router.replace('/dashboard');
+    // };
+
+    // ---- StartCall ----
+const StartCall = () => {
+  setLoading(true);
+  const vapi = new Vapi(process.env.NEXT_PUBLIC_VAPI_API_KEY!);
+  setVapiInstance(vapi); // keep instance for cleanup later
+
+  // Agent config (not used if you're starting with Voice Assistant ID)
+  const VapiAgentConfig = {
+    name: 'AI Trauma Therapist',
+    firstMessage: "hi there, hope you are feeling well today?",
+    transcriber: {
+      provider: 'assembly-ai',
+      language: 'en',
+    },
+    voice: {
+      provider: 'deepgram',
+      voiceId: sessionDetail?.selectedTherapist?.voiceId,
+    },
+    model: {
+      provider: 'google',
+      model: 'gemini-2.0-flash',
+      messages: [
+        {
+          role: 'system',
+          content:
+            sessionDetail?.selectedTherapist?.agentPrompt ||
+            'Provide empathetic support.',
         },
-        voice: {
-          provider: 'playht',
-          voiceId: sessionDetail?.selectedTherapist?.voiceId
-        },
-        model:{
-          provider:'openai',
-          model:'gpt-4',
-          messages: [
-            {
-              role: 'system',
-              content:sessionDetail?.selectedTherapist?.agentPrompt
-            }
-          ]
-        }
+      ],
+    },
+  };
+
+  // If you want to use config directly:
+  // vapi.start(VapiAgentConfig);
+
+  // If you’re using assistant ID:
+  vapi.start(process.env.NEXT_PUBLIC_VAPI_VOICE_ASSISTANT_ID!);
+
+  // Event listeners
+  vapi.on('call-start', () => {
+    console.log('Call started');
+    setCallStarted(true);
+  });
+
+  vapi.on('call-end', () => {
+    console.log('Call ended');
+    setCallStarted(false);
+  });
+
+  vapi.on('message', (message: any) => {
+    if (message.type === 'transcript') {
+      const { role, transcriptType, transcript } = message;
+      console.log(`${role}: ${transcript}`);
+
+      if (transcriptType === 'partial') {
+        setLiveTranscript(transcript);
+        setCurrentRole(role);
+      } else if (transcriptType === 'final') {
+        setMessages((prev: any) => [...prev, { role, text: transcript }]);
+        setLiveTranscript('');
+        setCurrentRole(null);
       }
-      //@ts-ignore
-      vapi.start(VapiAgentConfig);
-
-      vapi.on('call-start', () => {console.log('Call started')
-      setCallStarted(true);
-      });
-
-      vapi.on('call-end', () => {
-        console.log('Call ended')
-      setCallStarted(false);
-      });
-
-      vapi.on('message', (message) => {
-        if (message.type === 'transcript') {
-          const {role, transcriptType, transcript} = message
-          console.log(`${message.role}: ${message.transcript}`);
-          if(transcriptType=='partial'){
-            setLiveTranscript(transcript);
-            setCurrentRole(role)
-          }
-          else if(transcriptType == 'final'){
-            setMessages((prev: any)=>[...prev,{role:role,text:transcript}])
-            setLiveTranscript("");
-            setCurrentRole(null);
-          }
-        }
-      });
-
-      vapiInstance.on('speech-start', () => {
-        console.log('Assistant started speaking');
-        setCurrentRole('assistant');
-      });
-
-      vapiInstance.on('speech-start', () => {
-        console.log('Assistant stopped speaking');
-        setCurrentRole('user');
-      });
-
     }
+  });
 
-    const endCall = async () => {
-      setLoading(true);
-      if (!vapiInstance) return;
-        vapiInstance.stop();
+  vapi.on('speech-start', () => {
+    console.log('Assistant started speaking');
+    setCurrentRole('assistant');
+  });
 
-        vapiInstance.off('call-start');
-        vapiInstance.off('call-end');
-        vapiInstance.off('call-message');
-        vapiInstance.off('speech-start');
-        vapiInstance.off('speech-end');
+  vapi.on('speech-end', () => {
+    console.log('Assistant stopped speaking');
+    setCurrentRole('user');
+  });
 
-        setCallStarted(false);
-        setVapiInstance(null); 
+  setLoading(false);
+};
 
-        toast.success('Your report is generated!')
+// ---- endCall ----
+const endCall = async () => {
+  setLoading(true);
+  if (!vapiInstance) return;
 
-        // const result = await GenerateReport()
-        router.replace('/dashboard');
-    };
+  // Stop the call
+  vapiInstance.stop();
+
+  // ✅ Clean up all listeners safely
+  if (typeof vapiInstance.removeAllListeners === 'function') {
+    vapiInstance.removeAllListeners();
+  }
+
+  setCallStarted(false);
+  setVapiInstance(null);
+  toast.success('Your report is generated!');
+
+  // Generate report
+  const result = await GenerateReport();
+  setLoading(false);
+  router.replace('/dashboard');
+};
+
 
     const GenerateReport = async () => {
       const result = await axios.post('/api/session-report', {
@@ -139,43 +250,52 @@ function TherapyVoiceAgent () {
         sessionDetail:sessionDetail,
         sessionId:sessionId
       })
-      console.log(result.data);
+      console.log("this is the result data "+ result.data);
       return result.data;
     }
  
     return (
-    <div className='p-5 border rounded-3xl bg-secondary'>
-      <div className='flex justify-between items-center border-b p-3'>
-        <h2 className='p-1 px-2 border rounded-md flex gap-2 items-center'> <Circle className={`h-4 w-4 rounded-full ${callStarted ? 'bg-green-500' : 'bg-red-500'}`} />{callStarted ? 'Connected...' : 'Not Connected'}</h2>
-        <h2 className='font-bold text-xl text-gray-400'>00:00</h2>
-        {/* {sessionId} */}
-      </div>
-      {sessionDetail &&
-        <div className="flex item-center flex-col mt-10">
-          <Image src={sessionDetail?.selectedTherapist?.image} alt={sessionDetail?.selectedTherapist?.specialist} 
-            width={120} height={120} 
-            className='h-[100px] w-[100px] object-cover rounded-full'
-          />
-          <h2 className='mt-2 text-lg'>{sessionDetail?.selectedTherapist?.specialist}</h2>
-          <p className='text-sm text-gray-500'>AI Therapist Agent</p>
-          <div className="mt-12 overflow-y-auto flex flex-col items-center px-10 md:px-28 lg:px-52 xl:px-72">
-            {messages?.slice(-4).map((msg:messages, index)=> (
-                <h2 className='text-gray-500 p-2' key={index} >{msg.role} : {msg.text}</h2>
-            ))}
-            
-            {liveTranscript&&liveTranscript?.length>0&&<h2 className='text-lg'>{currentRoll} : {liveTranscript}</h2>}
+      <div className="px-10 md:px-20 lg:px-40 py-10">
+        <div className='p-5 border rounded-3xl bg-[#005f59]'>
+          <div className='flex justify-between items-center border-b p-3'>
+            <h2 className='p-1 px-2 border rounded-md flex gap-2 items-center'> <Circle className={`h-4 w-4 rounded-full ${callStarted ? 'bg-green-500' : 'bg-red-500'}`} />{callStarted ? 'Connected...' : 'Not Connected'}</h2>
+            <h2 className='font-bold text-xl text-gray-400'>00:00</h2>
           </div>
-          {!callStarted ?
-            <Button onClick={StartCall} className="mt-20" disabled={loading} > 
-              {loading ? <Loader className='animate-spin'/> : <LucidePhoneForwarded />}Start Session
-            </Button>
-            : <Button variant={'destructive'} onClick={endCall} disabled={loading}>
-                 {loading ? <Loader className='animate-spin'/> : <PhoneOff />}Disconnect Call
-              </Button>
+          {sessionDetail &&
+            <div className="flex items-center flex-col mt-10">
+              {sessionDetail?.selectedTherapist?.image ? (
+                <Image 
+                  src={sessionDetail?.selectedTherapist?.image } 
+                  alt={sessionDetail?.selectedTherapist?.specialist} 
+                  width={120} height={120} 
+                  className='h-[150px] w-[150px] object-cover rounded-full border-[5px] border-slate-400 shadow-lg'
+                />
+              ) : (
+                <div className='h-[100px] w-[100px] bg-gray-200 rounded-full flex items-center justify-center'>
+                  <span>No Image</span>
+                </div>
+              )}
+              <h2 className='mt-2 text-lg text-white font-bold'>{sessionDetail?.selectedTherapist?.specialist}</h2>
+              <p className='text-sm text-white'>AI Therapy Agent</p>
+              <div className="mt-12 overflow-y-auto flex flex-col items-center px-10 md:px-28 lg:px-52 xl:px-72">
+                {messages?.slice(-4).map((msg:messages, index)=> (
+                    <h2 className='text-white p-2' key={index} >{msg.role} : {msg.text}</h2>
+                ))}
+                
+                {liveTranscript&&liveTranscript?.length>0&&<h2 className='text-lg'>{currentRoll} : {liveTranscript}</h2>}
+              </div>
+              {!callStarted ?
+                <Button onClick={StartCall} className="mt-20" disabled={loading} > 
+                  {loading ? <Loader className='animate-spin'/> : <LucidePhoneForwarded />}Start Session
+                </Button>
+                : <Button variant={'destructive'} onClick={endCall} disabled={loading}>
+                    {loading ? <Loader className='animate-spin'/> : <PhoneOff />}Disconnect Call
+                  </Button>
+              }
+            </div>
           }
         </div>
-      }
-    </div>
+      </div>
   )
 }
 

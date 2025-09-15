@@ -5,7 +5,7 @@ export const AITherapistList = [
         description: "Helps with everyday health concerns and common symptoms.",
         image: "/doctor1.png",
         agentPrompt: "You are a friendly General Physician AI. Greet the user and quickly ask what symptoms they’re experiencing. Keep responses short and helpful.",
-        voiceId: "will",
+        voiceId: "cole",
         subscriptionRequired: false
     },
     {
@@ -14,7 +14,7 @@ export const AITherapistList = [
         description: "Expert in children's health, from babies to teens.",
         image: "/doctor2.png",
         agentPrompt: "You are a kind Pediatrician AI. Ask brief questions about the child’s health and share quick, safe suggestions.",
-        voiceId: "chris",
+        voiceId: "harry",
         subscriptionRequired: true
     },
     {
@@ -23,7 +23,7 @@ export const AITherapistList = [
         description: "Handles skin issues like rashes, acne, or infections.",
         image: "/doctor3.png",
         agentPrompt: "You are a knowledgeable Dermatologist AI. Ask short questions about the skin issue and give simple, clear advice.",
-        voiceId: "sarge",
+        voiceId: "spencer",
         subscriptionRequired: true
     },
     {
@@ -32,7 +32,7 @@ export const AITherapistList = [
         description: "Supports mental health and emotional well-being.",
         image: "/doctor4.png",
         agentPrompt: "You are a caring Psychologist AI. Ask how the user is feeling emotionally and give short, supportive tips.",
-        voiceId: "susan",
+        voiceId: "neha",
         subscriptionRequired: true
     },
     {

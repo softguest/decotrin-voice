@@ -17,7 +17,7 @@ export default function HeroSectionOne() {
       </div>
       <div className="px-4 py-10 md:py-20">
         <h1 className="relative z-10 mx-auto max-w-4xl text-center text-2xl font-bold text-slate-700 md:text-4xl lg:text-7xl dark:text-slate-300">
-          {"Launch your website in hours, not days"
+          {"Healing Trauma with the help of AI"
             .split(" ")
             .map((word, index) => (
               <motion.span
@@ -48,9 +48,8 @@ export default function HeroSectionOne() {
           }}
           className="relative z-10 mx-auto max-w-xl py-4 text-center text-lg font-normal text-neutral-600 dark:text-neutral-400"
         >
-          With AI, you can launch your website in hours, not days. Try our best
-          in class, state of the art, cutting edge AI tools to get your website
-          up.
+          Decotrin bridges the gap between trauma survivors and specialized coaches 
+            using AI-powered matching. Begin your healing journey today with our compassionate community.
         </motion.p>
         <motion.div
           initial={{

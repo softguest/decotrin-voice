@@ -34,6 +34,11 @@ const ViewReportDialog = ({record}: props) => {
                     <h2><span className='font-bold'>Therapy Specialization:</span> {record.selectedTherapist?.specialist}</h2>
                     <p>Session Date: { moment (new Date(record?.createdOn)).fromNow()}</p>
                 </div>
+                <div className='grid grid-cols-2'> 
+                    <p><span className='font-bold'>Therapy Specialization:</span> {record.selectedTherapist?.description}</p>
+                    <p>Session Date: {record.notes}</p>
+                    {/* <p>Created On: {record.report?.}</p> */}
+                </div>
             </div>
           </DialogDescription>
         </DialogHeader>
