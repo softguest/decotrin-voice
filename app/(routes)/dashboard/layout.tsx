@@ -8,7 +8,7 @@ const DashboardLayout = ({
   children: React.ReactNode;
 }>) => {
   return (
-    <div className="mb-40">
+    <div>
         <AppHeader />
         {children}
         <Footer />

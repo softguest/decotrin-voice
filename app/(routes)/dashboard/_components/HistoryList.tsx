@@ -21,7 +21,7 @@ const HistoryList = () => {
   }
 
   return (
-    <div className='mt-10'>
+    <div className='my-10'>
       {historyList.length == 0 ? (
         <div className="w-full h-96 flex flex-col items-center justify-center p-7 border border-dashed rounded-2xl">
           <Image src={'/pngfold/therapist.png'} alt="No History" width={250} height={200} />

@@ -25,7 +25,7 @@ const TherapyProcess = () => {
   ];
 
   return (
-    <section className="relative py-20 bg-[#005f59]/10 backdrop-blur-sm pb-32">
+    <section className="relative py-20 bg-[#005f59]/10 backdrop-blur-sm pb-64">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">

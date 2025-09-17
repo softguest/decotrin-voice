@@ -11,42 +11,127 @@ import {
 import { Button } from '@/components/ui/button'
 import { SessionDetail } from '../therapy-agent/[sessionId]/page'
 import moment from 'moment'
+import { View } from 'lucide-react'
 
-type props = {
-    record:SessionDetail
+type Report = {
+  agent?: string
+  user?: string
+  sessionId?: string
+  timestamp?: string
+  chiefComplaint?: string
+  summary?: string
+  triggers?: string[]
+  duration?: string
+  severity?: string
+  medicationsMentioned?: string[]
+  recommendations?: string[]
 }
 
-const ViewReportDialog = ({record}: props) => {
+type props = {
+  record: SessionDetail
+}
+
+const ViewReportDialog = ({ record }: props) => {
+  const report: Report = (record?.report as Report) || {}
+
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button variant={'link'} size={'sm'} className='mt-3'>View Report</Button>
+        <Button variant="link" size="sm" className="mt-3">
+          <View className="w-4 h-4 mr-1" /> View Report
+        </Button>
       </DialogTrigger>
-      <DialogContent>
+      <DialogContent className="max-w-3xl max-h-[80vh] overflow-y-auto">
         <DialogHeader>
           <DialogTitle asChild>
-            <h2 className='text-center text-4xl'>Therapy AI Voice Agent Report</h2>
+            <h2 className="text-center text-3xl font-bold">
+              Therapy AI Voice Agent Report
+            </h2>
           </DialogTitle>
           <DialogDescription asChild>
-            <div className='mt-10'>
-                <h2 className="font-bold text-blue-500 text-lg">Video Info:</h2>
-                <div className='grid grid-cols-2'> 
-                    <h2><span className='font-bold'>Therapy Specialization:</span> {record.selectedTherapist?.specialist}</h2>
-                    <p>Session Date: { moment (new Date(record?.createdOn)).fromNow()}</p>
+            <div className="space-y-6 mt-6">
+
+              {/* Basic Info */}
+              <section>
+                <h2 className="font-bold text-blue-500 text-lg mb-2">Session Info</h2>
+                <div className="grid grid-cols-2 gap-2 text-sm">
+                  <p><span className="font-bold">Agent:</span> {report.agent}</p>
+                  <p><span className="font-bold">User:</span> {report.user}</p>
+                  <p><span className="font-bold">Session ID:</span> {report.sessionId}</p>
+                  <p><span className="font-bold">Timestamp:</span> {report.timestamp ? moment(report.timestamp).format("LLL") : "-"}</p>
+                  <p><span className="font-bold">Created On:</span> {record?.createdOn ? moment(record.createdOn).fromNow() : "-"}</p>
                 </div>
-                <div className='grid grid-cols-2'> 
-                    <p><span className='font-bold'>Therapy Specialization:</span> {record.selectedTherapist?.description}</p>
-                    <p>Session Date: {record.notes}</p>
-                    {/* <p>Created On: {record.report?.}</p> */}
+              </section>
+
+              {/* Chief Complaint */}
+              <section>
+                <h2 className="font-bold text-blue-500 text-lg mb-2">Chief Complaint</h2>
+                <p>{report.chiefComplaint || "N/A"}</p>
+              </section>
+
+              {/* Summary */}
+              <section>
+                <h2 className="font-bold text-blue-500 text-lg mb-2">Summary</h2>
+                <p>{report.summary || "N/A"}</p>
+              </section>
+
+              {/* Triggers */}
+              <section>
+                <h2 className="font-bold text-blue-500 text-lg mb-2">Triggers</h2>
+                {report.triggers?.length ? (
+                  <ul className="list-disc list-inside">
+                    {report.triggers.map((t: string, i: number) => (
+                      <li key={i}>{t}</li>
+                    ))}
+                  </ul>
+                ) : (
+                  <p>N/A</p>
+                )}
+              </section>
+
+              {/* Duration & Severity */}
+              <section>
+                <h2 className="font-bold text-blue-500 text-lg mb-2">Trauma Details</h2>
+                <div className="grid grid-cols-2 gap-2 text-sm">
+                  <p><span className="font-bold">Duration:</span> {report.duration || "N/A"}</p>
+                  <p><span className="font-bold">Severity:</span> {report.severity || "N/A"}</p>
                 </div>
+              </section>
+
+              {/* Medications */}
+              <section>
+                <h2 className="font-bold text-blue-500 text-lg mb-2">Medications Mentioned</h2>
+                {report.medicationsMentioned?.length ? (
+                  <ul className="list-disc list-inside">
+                    {report.medicationsMentioned.map((m: string, i: number) => (
+                      <li key={i}>{m}</li>
+                    ))}
+                  </ul>
+                ) : (
+                  <p>None</p>
+                )}
+              </section>
+
+              {/* Recommendations */}
+              <section>
+                <h2 className="font-bold text-blue-500 text-lg mb-2">Recommendations</h2>
+                {report.recommendations?.length ? (
+                  <ul className="list-disc list-inside">
+                    {report.recommendations.map((r: string, i: number) => (
+                      <li key={i}>{r}</li>
+                    ))}
+                  </ul>
+                ) : (
+                  <p>No recommendations provided</p>
+                )}
+              </section>
+
             </div>
           </DialogDescription>
         </DialogHeader>
         <DialogFooter>
-          <Dialog>
-
-          </Dialog>
-        </DialogFooter>   
+          <Button variant="outline">Close</Button>
+        </DialogFooter>
       </DialogContent>
     </Dialog>
   )

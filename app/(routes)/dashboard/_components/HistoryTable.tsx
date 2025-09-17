@@ -43,10 +43,10 @@ const HistoryTable = ({ historyList }: Props ) => {
     //         </TableBody>
     //     </Table>
     // </div>
-<div className="overflow-x-auto rounded-2xl shadow-md">
+<div className="overflow-x-auto rounded-2xl shadow-md md:bg-[#005f59] md:p-5">
   <Table>
-    <TableCaption className="text-gray-500">
-      Previous Therapy Session Reports
+    <TableCaption className="text-gray-300 mb-2">
+      Previous Reports
     </TableCaption>
 
     {/* Table Head with soft teal tint */}

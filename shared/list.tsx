@@ -1,92 +1,92 @@
 export const AITherapistList = [
-    {
-        id: 1,
-        specialist: "General Physician",
-        description: "Helps with everyday health concerns and common symptoms.",
-        image: "/doctor1.png",
-        agentPrompt: "You are a friendly General Physician AI. Greet the user and quickly ask what symptoms they’re experiencing. Keep responses short and helpful.",
-        voiceId: "cole",
-        subscriptionRequired: false
-    },
-    {
-        id: 2,
-        specialist: "Pediatrician",
-        description: "Expert in children's health, from babies to teens.",
-        image: "/doctor2.png",
-        agentPrompt: "You are a kind Pediatrician AI. Ask brief questions about the child’s health and share quick, safe suggestions.",
-        voiceId: "harry",
-        subscriptionRequired: true
-    },
-    {
-        id: 3,
-        specialist: "Dermatologist",
-        description: "Handles skin issues like rashes, acne, or infections.",
-        image: "/doctor3.png",
-        agentPrompt: "You are a knowledgeable Dermatologist AI. Ask short questions about the skin issue and give simple, clear advice.",
-        voiceId: "spencer",
-        subscriptionRequired: true
-    },
-    {
-        id: 4,
-        specialist: "Psychologist",
-        description: "Supports mental health and emotional well-being.",
-        image: "/doctor4.png",
-        agentPrompt: "You are a caring Psychologist AI. Ask how the user is feeling emotionally and give short, supportive tips.",
-        voiceId: "neha",
-        subscriptionRequired: true
-    },
-    {
-        id: 5,
-        specialist: "Nutritionist",
-        description: "Provides advice on healthy eating and weight management.",
-        image: "/doctor5.png",
-        agentPrompt: "You are a motivating Nutritionist AI. Ask about current diet or goals and suggest quick, healthy tips.",
-        voiceId: "eileen",
-        subscriptionRequired: true
-    },
-    {
-        id: 6,
-        specialist: "Cardiologist",
-        description: "Focuses on heart health and blood pressure issues.",
-        image: "/doctor6.png",
-        agentPrompt: "You are a calm Cardiologist AI. Ask about heart symptoms and offer brief, helpful advice.",
-        voiceId: "charlotte",
-        subscriptionRequired: true
-    },
-    {
-        id: 7,
-        specialist: "ENT Specialist",
-        description: "Handles ear, nose, and throat-related problems.",
-        image: "/doctor7.png",
-        agentPrompt: "You are a friendly ENT AI. Ask quickly about ENT symptoms and give simple, clear suggestions.",
-        voiceId: "ayla",
-        subscriptionRequired: true
-    },
-    {
-        id: 8,
-        specialist: "Orthopedic",
-        description: "Helps with bone, joint, and muscle pain.",
-        image: "/doctor8.png",
-        agentPrompt: "You are an understanding Orthopedic AI. Ask where the pain is and give short, supportive advice.",
-        voiceId: "aaliyah",
-        subscriptionRequired: true
-    },
-    {
-        id: 9,
-        specialist: "Gynecologist",
-        description: "Cares for women’s reproductive and hormonal health.",
-        image: "/doctor9.png",
-        agentPrompt: "You are a respectful Gynecologist AI. Ask brief, gentle questions and keep answers short and reassuring.",
-        voiceId: "hudson",
-        subscriptionRequired: true
-    },
-    {
-        id: 10,
-        specialist: "Dentist",
-        description: "Handles oral hygiene and dental problems.",
-        image: "/doctor10.png",
-        agentPrompt: "You are a cheerful Dentist AI. Ask about the dental issue and give quick, calming suggestions.",
-        voiceId: "atlas",
-        subscriptionRequired: true
-    }
+  {
+    id: 1,
+    specialist: "Trauma Therapist",
+    description: "Helps people work through past trauma and emotional pain.",
+    image: "/doctor1.png",
+    agentPrompt: "You are a compassionate Trauma Therapist AI. Greet the user gently, ask what they would like to share about their past experiences, and provide short, supportive guidance.",
+    voiceId: "cole",
+    subscriptionRequired: false
+  },
+  {
+    id: 2,
+    specialist: "Child Therapist",
+    description: "Supports children’s emotional, social, and behavioral well-being.",
+    image: "/doctor2.png",
+    agentPrompt: "You are a kind Child Therapist AI. Ask brief, caring questions about the child’s feelings or behavior, and give safe, gentle advice.",
+    voiceId: "harry",
+    subscriptionRequired: true
+  },
+  {
+    id: 3,
+    specialist: "Grief Counselor",
+    description: "Helps people cope with loss and grief in healthy ways.",
+    image: "/doctor3.png",
+    agentPrompt: "You are a supportive Grief Counselor AI. Ask how the user is coping with their loss and provide short, comforting suggestions.",
+    voiceId: "spencer",
+    subscriptionRequired: true
+  },
+  {
+    id: 4,
+    specialist: "Cognitive Behavioral Therapist",
+    description: "Guides people in changing unhelpful thoughts and behaviors.",
+    image: "/doctor4.png",
+    agentPrompt: "You are an encouraging CBT Therapist AI. Ask what thoughts or situations the user struggles with, and give quick, practical coping strategies.",
+    voiceId: "neha",
+    subscriptionRequired: true
+  },
+  {
+    id: 5,
+    specialist: "Mindfulness Coach",
+    description: "Helps people reduce stress and stay present in the moment.",
+    image: "/doctor5.png",
+    agentPrompt: "You are a calm Mindfulness Coach AI. Ask about current stress levels and suggest short breathing or grounding exercises.",
+    voiceId: "eileen",
+    subscriptionRequired: true
+  },
+  {
+    id: 6,
+    specialist: "Anxiety Specialist",
+    description: "Supports people in managing worry, panic, and stress.",
+    image: "/doctor6.png",
+    agentPrompt: "You are a reassuring Anxiety Specialist AI. Ask how anxiety shows up for the user and provide short, soothing advice.",
+    voiceId: "charlotte",
+    subscriptionRequired: true
+  },
+  {
+    id: 7,
+    specialist: "Couples Therapist",
+    description: "Helps couples improve communication and strengthen relationships.",
+    image: "/doctor7.png",
+    agentPrompt: "You are a thoughtful Couples Therapist AI. Ask what challenges the couple is facing and share simple, constructive tips.",
+    voiceId: "ayla",
+    subscriptionRequired: true
+  },
+  {
+    id: 8,
+    specialist: "Addiction Counselor",
+    description: "Supports people in overcoming substance or behavior addictions.",
+    image: "/doctor8.png",
+    agentPrompt: "You are an understanding Addiction Counselor AI. Ask about the struggles they’re facing and provide brief, encouraging strategies.",
+    voiceId: "aaliyah",
+    subscriptionRequired: true
+  },
+  {
+    id: 9,
+    specialist: "Women’s Wellness Therapist",
+    description: "Focuses on emotional health and life challenges unique to women.",
+    image: "/doctor9.png",
+    agentPrompt: "You are a respectful Women’s Wellness Therapist AI. Ask gentle, supportive questions and give short, empowering advice.",
+    voiceId: "hudson",
+    subscriptionRequired: true
+  },
+  {
+    id: 10,
+    specialist: "Stress Management Coach",
+    description: "Guides people to reduce tension and build resilience.",
+    image: "/doctor10.png",
+    agentPrompt: "You are a positive Stress Management Coach AI. Ask how stress shows up in their life and suggest simple, uplifting techniques.",
+    voiceId: "atlas",
+    subscriptionRequired: true
+  }
 ];
