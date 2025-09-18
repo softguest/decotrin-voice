@@ -43,9 +43,9 @@ const HistoryTable = ({ historyList }: Props ) => {
     //         </TableBody>
     //     </Table>
     // </div>
-<div className="overflow-x-auto rounded-2xl shadow-md md:bg-[#005f59] md:p-5">
+<div className="overflow-x-auto rounded-2xl md:rounded-4xl shadow-md md:bg-[#005f59]/30 md:p-2">
   <Table>
-    <TableCaption className="text-gray-300 mb-2">
+    <TableCaption className="text-gray-600 mb-2">
       Previous Reports
     </TableCaption>
 

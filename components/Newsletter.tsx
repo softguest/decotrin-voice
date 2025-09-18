@@ -11,11 +11,12 @@ const Newsletter = () => {
           {/* Content */}
           <div>
             <h2 className="text-3xl md:text-4xl font-bold text-primary-foreground mb-6">
-              Join Our Healing Community
+              Join the Decotrin Community
             </h2>
             <p className="text-xl text-primary-foreground/90 mb-8">
-              Stay connected with weekly insights, self-care tips, and therapeutic resources 
-              delivered directly to your inbox. Join thousands who are prioritizing their mental health.
+              Get exclusive tips, insights, and resources to maximize your AI-powered 
+              therapy sessions. Learn practical strategies for emotional well-being 
+              and self-growth — delivered straight to your inbox.
             </p>
             
             {/* Newsletter form */}
@@ -32,11 +33,11 @@ const Newsletter = () => {
                 </div>
                 <Button size="lg" className="w-full" variant="therapeutic">
                   <Mail className="w-5 h-5 mr-2" />
-                  Subscribe to Newsletter
+                  Subscribe
                 </Button>
               </div>
               <p className="text-muted-foreground text-sm mt-4">
-                We respect your privacy. Unsubscribe at any time.
+                We respect your privacy. Unsubscribe anytime.
               </p>
             </div>
           </div>
@@ -49,21 +50,21 @@ const Newsletter = () => {
                   <Mail className="w-6 h-6" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-semibold mb-2">Weekly Wellness Tips</h3>
+                  <h3 className="text-xl font-semibold mb-2">AI Session Tips</h3>
                   <p className="text-primary-foreground/80">
-                    Practical strategies for managing stress and building resilience.
+                    Maximize your voice therapy sessions with practical guidance and actionable tips.
                   </p>
                 </div>
               </div>
               
               <div className="flex items-center space-x-4">
                 <div className="w-12 h-12 bg-primary-foreground/20 rounded-full flex items-center justify-center">
-                  <span className="text-xl">📚</span>
+                  <span className="text-xl">📊</span>
                 </div>
                 <div>
-                  <h3 className="text-xl font-semibold mb-2">Educational Resources</h3>
+                  <h3 className="text-xl font-semibold mb-2">Progress Insights</h3>
                   <p className="text-primary-foreground/80">
-                    Access to articles, guides, and tools for personal growth.
+                    Learn how to track your emotional growth and make the most of your session reports.
                   </p>
                 </div>
               </div>
@@ -75,7 +76,7 @@ const Newsletter = () => {
                 <div>
                   <h3 className="text-xl font-semibold mb-2">Early Access</h3>
                   <p className="text-primary-foreground/80">
-                    Be the first to know about new services and special offers.
+                    Be the first to know about new AI features, services, and special offers.
                   </p>
                 </div>
               </div>

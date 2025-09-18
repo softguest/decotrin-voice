@@ -1,26 +1,26 @@
-import { Search, Target, Map, CheckCircle } from "lucide-react";
+import { UserPlus, Mic, MessageCircle, FileText } from "lucide-react";
 
 const TherapyProcess = () => {
   const steps = [
     {
-      icon: Search,
-      title: "Orientation",
-      description: "We begin by understanding your background, current challenges, and therapeutic goals."
+      icon: UserPlus,
+      title: "Sign Up",
+      description: "Create your free Decotrin account in minutes and get started right away."
     },
     {
-      icon: Target,
-      title: "Identification",
-      description: "Together, we identify patterns, triggers, and areas that need focused attention."
+      icon: Mic,
+      title: "Start a Session",
+      description: "Connect instantly with an AI-powered voice agent for real-time therapy."
     },
     {
-      icon: Map,
-      title: "Exploration",
-      description: "We explore underlying causes and develop personalized strategies for healing."
+      icon: MessageCircle,
+      title: "Have a Conversation",
+      description: "Engage in natural voice-based conversations designed to support your emotional well-being."
     },
     {
-      icon: CheckCircle,
-      title: "Resolution",
-      description: "You integrate new insights and skills, moving toward lasting positive change."
+      icon: FileText,
+      title: "Get Your Report",
+      description: "Receive a personalized session report with insights and recommendations after every session."
     }
   ];
 
@@ -29,11 +29,11 @@ const TherapyProcess = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
-            Our Therapy Process
+            How Decotrin Works
           </h2>
           <p className="text-lg text-muted-foreground">
-            A structured, compassionate approach that guides you through each stage 
-            of your healing journey with clear milestones and continuous support.
+            Simple, seamless, and available anytime you need support. 
+            Get therapy in four easy steps — all powered by AI voice agents.
           </p>
         </div>
 
@@ -55,11 +55,6 @@ const TherapyProcess = () => {
                 {/* Content */}
                 <h3 className="text-xl font-semibold text-foreground mb-3">{step.title}</h3>
                 <p className="text-muted-foreground leading-relaxed">{step.description}</p>
-
-                {/* Connector Line (not on last item) */}
-                {/* {index < steps.length - 1 && (
-                  <div className="hidden lg:block absolute top-1/2 left-full w-full h-0.5 bg-border transform -translate-y-1/2 translate-x-4"></div>
-                )} */}
               </div>
             );
           })}

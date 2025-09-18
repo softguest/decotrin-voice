@@ -1,14 +1,13 @@
 import { Button } from "@/components/ui/button";
 import { Check } from "lucide-react";
-// import therapyIllustration from "@/assets/therapy-illustration.jpg";
 
 const PsychotherapyHighlight = () => {
   const benefits = [
-    "Personalized treatment plans tailored to your specific needs",
-    "Evidence-based therapeutic approaches proven effective",
-    "Safe, confidential environment for healing and growth",
-    "Flexible scheduling to accommodate your lifestyle",
-    "Collaborative approach with ongoing progress assessment"
+    "Instant access to AI-powered voice therapy agents anytime",
+    "Engaging real-time conversations designed for emotional support",
+    "Personalized session reports with actionable insights",
+    "Confidential and secure platform for your well-being",
+    "Flexible sessions — no appointments required"
   ];
 
   return (
@@ -20,7 +19,7 @@ const PsychotherapyHighlight = () => {
             <div className="relative">
               <img
                 src="/bg00.jpg"
-                alt="Professional therapy session"
+                alt="AI voice therapy session"
                 className="rounded-2xl shadow-therapeutic w-full h-auto"
               />
               <div className="absolute inset-0 bg-gradient-to-tr from-primary/10 to-transparent rounded-2xl"></div>
@@ -30,11 +29,13 @@ const PsychotherapyHighlight = () => {
           {/* Content */}
           <div className="order-1 lg:order-2">
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
-              Professional Psychotherapy That Works
+              AI-Powered Therapy That’s Always There for You
             </h2>
             <p className="text-lg text-muted-foreground mb-8">
-              Our psychotherapy services are designed to help you understand yourself better, 
-              develop healthy coping mechanisms, and create lasting positive change in your life.
+              Decotrin lets you connect with AI voice agents for therapy 
+              anytime you need it. Have meaningful conversations in real-time 
+              and receive personalized reports that help you track your growth 
+              and well-being over time.
             </p>
 
             {/* Benefits List */}
@@ -52,10 +53,10 @@ const PsychotherapyHighlight = () => {
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4">
               <Button size="lg" variant="default">
-                Start Your Journey
+                Start a Voice Session
               </Button>
               <Button size="lg" variant="outline">
-                Learn More About Our Approach
+                See How It Works
               </Button>
             </div>
           </div>

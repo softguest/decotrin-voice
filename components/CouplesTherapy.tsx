@@ -1,14 +1,13 @@
 import { Button } from "@/components/ui/button";
 import { Check } from "lucide-react";
-// import couplesTherapy from "@/assets/couples-therapy.jpg";
 
 const CouplesTherapy = () => {
   const benefits = [
-    "Improve communication and listening skills",
-    "Learn healthy conflict resolution techniques",
-    "Rebuild trust and emotional intimacy",
-    "Develop shared goals and vision for the future",
-    "Create lasting positive relationship patterns"
+    "Practice healthier communication with guided AI voice sessions",
+    "Learn conflict resolution strategies together in real-time",
+    "Receive session reports highlighting key insights as a couple",
+    "Strengthen trust and emotional connection through shared reflection",
+    "Build a foundation of positive relationship habits with ongoing support"
   ];
 
   return (
@@ -18,12 +17,13 @@ const CouplesTherapy = () => {
           {/* Content */}
           <div>
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
-              Strengthen Your Relationship Through Couples Therapy
+              Strengthen Your Relationship with AI-Guided Sessions
             </h2>
             <p className="text-lg text-muted-foreground mb-8">
-              Whether you're facing challenges or simply want to deepen your connection, 
-              our couples therapy provides a safe space to grow together and build a stronger, 
-              more fulfilling relationship.
+              Decotrin offers couples a supportive way to grow together. 
+              Engage in real-time AI voice sessions designed to improve communication, 
+              resolve conflicts, and help you build lasting relationship patterns — 
+              all with personalized reports after each session.
             </p>
 
             {/* Benefits List */}
@@ -41,10 +41,10 @@ const CouplesTherapy = () => {
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4">
               <Button size="lg" variant="therapeutic">
-                Book Couples Session
+                Start a Couples Session
               </Button>
               <Button size="lg" variant="outline">
-                Download Relationship Guide
+                See How It Works
               </Button>
             </div>
           </div>
@@ -54,7 +54,7 @@ const CouplesTherapy = () => {
             <div className="relative">
               <img
                 src="/grid02.png"
-                alt="Couples therapy session"
+                alt="AI couples therapy session"
                 className="rounded-2xl shadow-therapeutic w-full h-auto"
               />
               <div className="absolute inset-0 bg-gradient-to-tl from-therapeutic/10 to-transparent rounded-2xl"></div>

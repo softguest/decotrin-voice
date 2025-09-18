@@ -1,29 +1,28 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Heart, MessageCircle, Calendar } from "lucide-react";
-// import heroBackground from "/assets/heroBackground.jpg";
 
 const Hero = () => {
   const ctaCards = [
     {
       icon: Heart,
-      title: "Psychotherapy",
-      description: "Individual therapy sessions for personal growth and healing",
-      href: "#psychotherapy",
+      title: "AI Voice Therapy",
+      description: "Talk to AI-powered voice agents anytime you need support.",
+      href: "#voice-therapy",
       bgColor: "bg-transparent"
     },
     {
       icon: MessageCircle,
-      title: "Counselling",
-      description: "Professional guidance through life's challenges",
-      href: "#counselling",
+      title: "Real-Time Sessions",
+      description: "Engage in live, natural conversations for healing and growth.",
+      href: "#real-time",
       bgColor: "bg-transparent"
     },
     {
       icon: Calendar,
-      title: "Book a Session",
-      description: "Schedule your consultation today",
-      href: "#booking",
+      title: "Session Reports",
+      description: "Receive personalized insights at the end of every session.",
+      href: "#reports",
       bgColor: "bg-[#005f59]"
     }
   ];
@@ -41,16 +40,17 @@ const Hero = () => {
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
-          <h4 className="text-2xl font-bold text-[#52b7bd]">AI Powered Therapy For All</h4>
+          <h4 className="text-2xl font-bold text-[#52b7bd]">Your AI Therapy Companion</h4>
           <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">
-            Helping You Find the
-            <span className="text-white block">Answers</span>
+            Real-Time Voice Therapy
+            <span className="text-white block">Available Anytime</span>
           </h1>
           <div className="w-64 h-2 bg-[linear-gradient(to_right,#ff9245,#ff9245_50%,transparent_90%)] rounded-full"></div>
           
           <p className="text-xl md:text-2xl text-white mb-6 mt-4 mx-auto">
-            Professional trauma therapy and counseling services<br/> to guide you on your journey 
-            toward healing, growth,<br/> and emotional well-being.
+            Decotrin connects you with AI-powered voice agents for<br/> 
+            instant therapy sessions, meaningful conversations,<br/> 
+            and personalized session reports — whenever you need them.
           </p>
 
           {/* CTA Cards */}
@@ -67,9 +67,9 @@ const Hero = () => {
                       <h3 className="text-3xl font-semibold text-white mb-2">{card.title}</h3>
                     </div>
                     <p className="text-white mb-4">{card.description}</p>
-                    {/* <Button variant="outline" size="sm" className="group-hover:border-primary group-hover:text-primary">
-                      Learn More
-                    </Button> */}
+                    <Button variant="outline" size="sm" className="group-hover:border-primary group-hover:text-primary">
+                      Get A Session!
+                    </Button>
                   </CardContent>
                 </Card>
               );

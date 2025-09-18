@@ -12,7 +12,10 @@ const AppHeader = () => {
     ]
   return (
     <div className='w-full h-16 bg-white border-b border-b-gray-200 px-8 flex items-center justify-between shadow px-10 md:px-20 lg:px-40'>
-        <div className="font-bold ">DECOTRIN</div>
+        <Link href="/" className="flex justify-center items-center space-x-2">
+            <span className="w-8 h-8 bg-[#ff9245] rounded-full"></span>
+            <span className="text-2xl text-[#005f59] font-bold">Decotrin</span>
+        </Link>
         <div className="hidden md:flex gap-12 items-center">
             {menuOptions.map((option,index) => (
                 <Link href={option.path} key={index}>

@@ -1,13 +1,11 @@
 "use client";
 import { Button } from "@/components/ui/button";
-import { UserButton, useUser } from "@clerk/nextjs";
 import { LogIn, Menu, X } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
 
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const { user } = useUser();
 
   const navigation = [
     { name: "Home", href: "#" },
@@ -23,11 +21,10 @@ const Header = () => {
       <nav className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <div className="flex-shrink-0">
-            <div className="h-8 w-32 bg-primary rounded-md flex items-center justify-center">
-              <span className="text-primary-foreground font-semibold text-sm">Decotrin</span>
-            </div>
-          </div>
+          <Link href="/" className="flex justify-center items-center space-x-2">
+              <span className="w-8 h-8 bg-[#ff9245] rounded-full"></span>
+              <span className="text-2xl text-[#005f59] font-bold">Decotrin</span>
+          </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden md:block">
@@ -44,16 +41,16 @@ const Header = () => {
             </div>
           </div>
 
-          {/* Contact Button */}
-          {/* <div className="hidden md:block">
-            <Link href="/sign-in" className="cursor-pointer">
-              <Button variant="secondary" size="sm">
+          {/* Dashboard Button */}
+          <div className="hidden md:block">
+            <Link href="/dashboard" className="cursor-pointer">
+              <Button variant="therapeutic2" size="sm">
                 <LogIn className="w-4 h-4 mr-1" />
-                SignIn
+                  Start Therapy
               </Button>
             </Link>
-          </div> */}
-          {!user ?
+          </div>
+          {/* {!user ?
             <Link href="/sign-in">
                 <button className="w-24 transform rounded-lg bg-black px-6 py-2 font-medium text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-gray-800 md:w-32 dark:bg-white dark:text-black dark:hover:bg-gray-200">
                     Login
@@ -66,7 +63,7 @@ const Header = () => {
                       </Link>
                   </div>
                 </div>
-            }
+            } */}
 
           {/* Mobile menu button */}
           <div className="md:hidden cursor-pointer">
@@ -94,23 +91,25 @@ const Header = () => {
                   {item.name}
                 </a>
               ))}
-              {/* <div className="px-3 py-2">
-                <Button variant="secondary" size="sm" className="w-full">
-                  Sign in
-                </Button>
-              </div> */}
-                  {!user ?
+              <div className="px-3 py-2">
+                <Link href="/dashboard" className="w-full">
+                  <Button variant="therapeutic2" size="sm" className="w-full">
+                    Start Therapy
+                  </Button>
+                </Link>
+              </div>
+                  {/* {!user ?
                     <Link href="/sign-in">
                         <button className="w-24 transform rounded-lg bg-black px-6 py-2 font-medium text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-gray-800 md:w-32 dark:bg-white dark:text-black dark:hover:bg-gray-200">
                             Login
                         </button></Link> :
                         <div className="flex items-center justify-center gap-5">
                             <UserButton />
-                            <Link href="/dashboard">
+                            <Link href="/dashboard" className="cursor-pointer">
                               <Button variant="therapeutic2">Dashboard</Button>
                           </Link>
                         </div>
-                    }
+                    } */}
             </div>
           </div>
         )}
