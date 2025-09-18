@@ -10,4 +10,4 @@ const BillingPage = () => {
   )
 }
 
-export default BillingPage
+export default BillingPage;
