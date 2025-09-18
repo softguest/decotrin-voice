@@ -79,174 +79,98 @@ const AddNewSessionDialog = () => {
 
 
   return (
-    // <Dialog>
-    //   <DialogTrigger asChild>
-    //     <Button variant="therapeutic2" className='mt-3' disabled={!paidUser&&HistoryList?.length>=1}>+ Start A Therapy Session</Button>
-    //   </DialogTrigger>
-    //   <DialogContent>
-    //     <DialogHeader>
-    //       <DialogTitle>Add Basis Details!</DialogTitle>
-    //       <DialogDescription asChild>
-    //         {suggestedTherapists.length === 0 ?
-    //           <div>
-    //             <h2>Add Trauma Topic or Any Other Details</h2>
-    //             <Textarea
-    //               placeholder="Add Details here... "
-    //               className="h-[200px] mt-1"
-    //               onChange={(e) => setNote(e.target.value)}
-    //             />
-    //           </div>
-    //         : 
-    //           <div>
-    //             <h2>Select Therapist</h2>
-    //             <div className="grid grid-cols-3 gap-5">
-    //               {suggestedTherapists.map((therapist, index) => (
-    //                 <SuggestedTherapistCard
-    //                   therapistAgent={therapist}
-    //                   key={therapist.id ?? index}
-    //                   setSelectedTherapist={() => setSelectedTherapist(therapist)}
-    //                   //@ts-ignore
-    //                   selectedTherapist={selectedTherapist}
-    //                 />
-    //               ))}
-    //             </div>
-    //           </div>
-    //         }
-    //       </DialogDescription>
-    //     </DialogHeader>
-    //     <DialogFooter>
-    //       <Dialog>
-    //         <Button variant={'outline'}>Cancel</Button>
-    //       </Dialog>
-    //       <Dialog>
-
-    //       {/* Show Next only if no therapists yet */}
-    //        {suggestedTherapists.length === 0 && (
-    //         <Button disabled={!note || loading} onClick={OnClickNext}>
-    //           {loading ? (
-    //             <Loader2 className="animate-spin" />
-    //           ) : (
-    //             <>
-    //               Next <ArrowRight />
-    //             </>
-    //           )}
-    //         </Button>
-    //        )}
-
-    //        {/* Show Start Therapy only if therapists are suggested */}
-    //       {suggestedTherapists.length > 0 && (
-    //         <Button
-    //           disabled={loading || !selectedTherapist}
-    //           onClick={onStartSession}
-    //           className="bg-green-600 text-white hover:bg-green-700"
-    //         >
-    //           {loading ? (
-    //             <Loader2 className="animate-spin" />
-    //           ) : (
-    //             <>
-    //               Start Therapy <ArrowRight />
-    //             </>
-    //           )}
-    //         </Button>          
-    //       )}  
-
-    //       </Dialog>
-    //     </DialogFooter>   
-    //   </DialogContent>
-    // </Dialog>
     <Dialog>
-  <DialogTrigger asChild>
-    <Button 
-      variant="therapeutic2" 
-      className="mt-3"
-      disabled={!paidUser && HistoryList?.length >= 1}
-    >
-      + Start A Therapy Session
-    </Button>
-  </DialogTrigger>
+      <DialogTrigger asChild>
+        <Button 
+          variant="therapeutic2" 
+          className="mt-3"
+          disabled={!paidUser && HistoryList?.length >= 1}
+        >
+          + Start A Therapy Session
+        </Button>
+      </DialogTrigger>
 
-  <DialogContent className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl shadow-lg p-6 max-w-3xl mx-auto">
-    <DialogHeader>
-      <DialogTitle className="text-2xl md:text-3xl font-bold text-[#ff9245]">
-        Add Basic Details!
-      </DialogTitle>
+      <DialogContent className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl shadow-lg p-6 max-w-3xl mx-auto">
+        <DialogHeader>
+          <DialogTitle className="text-2xl md:text-3xl font-bold text-[#ff9245]">
+            Add Basic Details!
+          </DialogTitle>
 
-      <DialogDescription asChild>
-        <div className="mt-4 space-y-6">
+          <DialogDescription asChild>
+            <div className="mt-4 space-y-6">
+              {suggestedTherapists.length === 0 ? (
+                <div>
+                  <h2 className="text-lg md:text-xl font-bold text-white  mb-2">
+                    Add Trauma Topic or Any Other Details
+                  </h2>
+                  <Textarea
+                    placeholder="Add Details here..."
+                    className="h-[200px] bg-white/20 backdrop-blur-md border border-white/70 text-white placeholder-white/60 rounded-lg p-4 w-full transition-all focus:ring-2 focus:ring-[#ff9245]"
+                    onChange={(e) => setNote(e.target.value)}
+                  />
+                </div>
+              ) : (
+                <div>
+                  <h2 className="text-lg md:text-xl font-medium text-white mb-4">
+                    Select Therapist
+                  </h2>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
+                    {suggestedTherapists.map((therapist, index) => (
+                        <SuggestedTherapistCard
+                          therapistAgent={therapist}
+                          key={therapist.id ?? index}
+                          setSelectedTherapist={() => setSelectedTherapist(therapist)}
+                          //@ts-ignore
+                          selectedTherapist={selectedTherapist}
+                        />
+                      ))}
+                  </div>
+                </div>
+              )}
+            </div>
+          </DialogDescription>
+        </DialogHeader>
+
+        <DialogFooter className="mt-6 flex flex-col sm:flex-row justify-end gap-4">
+          <Button
+            variant="outline"
+            className="border-white/40 text-slate-600 hover:bg-white/10 hover:text-white hover:border-[#ff9245] cursor-pointer"
+          >
+            Cancel
+          </Button>
+
           {suggestedTherapists.length === 0 ? (
-            <div>
-              <h2 className="text-lg md:text-xl font-medium text-white mb-2">
-                Add Trauma Topic or Any Other Details
-              </h2>
-              <Textarea
-                placeholder="Add Details here..."
-                className="h-[200px] bg-white/20 backdrop-blur-md border border-white/70 text-white placeholder-white/60 rounded-lg p-4 w-full transition-all focus:ring-2 focus:ring-[#ff9245]"
-                onChange={(e) => setNote(e.target.value)}
-              />
-            </div>
+            <Button
+              disabled={!note || loading}
+              onClick={OnClickNext}
+              className="bg-[#ff9245] text-white hover:bg-[#ff9245]/90 flex items-center gap-2 cursor-pointer"
+            >
+              {loading ? (
+                <Loader2 className="animate-spin w-5 h-5" />
+              ) : (
+                <>
+                  <span className='font-bold'>Next</span> <ArrowRight className="w-4 h-4" />
+                </>
+              )}
+            </Button>
           ) : (
-            <div>
-              <h2 className="text-lg md:text-xl font-medium text-white mb-4">
-                Select Therapist
-              </h2>
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
-                {suggestedTherapists.map((therapist, index) => (
-                    <SuggestedTherapistCard
-                      therapistAgent={therapist}
-                      key={therapist.id ?? index}
-                      setSelectedTherapist={() => setSelectedTherapist(therapist)}
-                      //@ts-ignore
-                      selectedTherapist={selectedTherapist}
-                    />
-                  ))}
-              </div>
-            </div>
+            <Button
+              disabled={loading || !selectedTherapist}
+              onClick={onStartSession}
+              className="bg-[#00a896] text-white hover:bg-[#00a896]/90 flex items-center gap-2 cursor-pointer"
+            >
+              {loading ? (
+                <Loader2 className="animate-spin w-5 h-5" />
+              ) : (
+                <>
+                  <span className='font-bold'>Start Therapy</span> <ArrowRight className="w-4 h-4" />
+                </>
+              )}
+            </Button>
           )}
-        </div>
-      </DialogDescription>
-    </DialogHeader>
-
-    <DialogFooter className="mt-6 flex flex-col sm:flex-row justify-end gap-4">
-      <Button
-        variant="outline"
-        className="border-white/40 text-slate-600 hover:bg-white/10 hover:text-white hover:border-[#ff9245] cursor-pointer"
-      >
-        Cancel
-      </Button>
-
-      {suggestedTherapists.length === 0 ? (
-        <Button
-          disabled={!note || loading}
-          onClick={OnClickNext}
-          className="bg-[#ff9245] text-white hover:bg-[#ff9245]/90 flex items-center gap-2 cursor-pointer"
-        >
-          {loading ? (
-            <Loader2 className="animate-spin w-5 h-5" />
-          ) : (
-            <>
-              <span className='font-bold'>Next</span> <ArrowRight className="w-4 h-4" />
-            </>
-          )}
-        </Button>
-      ) : (
-        <Button
-          disabled={loading || !selectedTherapist}
-          onClick={onStartSession}
-          className="bg-[#00a896] text-white hover:bg-[#00a896]/90 flex items-center gap-2 cursor-pointer"
-        >
-          {loading ? (
-            <Loader2 className="animate-spin w-5 h-5" />
-          ) : (
-            <>
-              <span className='font-bold'>Start Therapy</span> <ArrowRight className="w-4 h-4" />
-            </>
-          )}
-        </Button>
-      )}
-    </DialogFooter>
-  </DialogContent>
-</Dialog>
-
+        </DialogFooter>
+      </DialogContent>
+    </Dialog>
   )
 }
 

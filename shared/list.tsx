@@ -3,18 +3,18 @@ export const AITherapistList = [
     id: 1,
     specialist: "Trauma Therapist",
     description: "Helps people work through past trauma and emotional pain.",
-    image: "/doctor1.png",
+    image: "/doct03.png",
     agentPrompt: "You are a compassionate Trauma Therapist AI. Greet the user gently, ask what they would like to share about their past experiences, and provide short, supportive guidance.",
-    voiceId: "cole",
+    voiceId: "colette",
     subscriptionRequired: false
   },
   {
     id: 2,
     specialist: "Child Therapist",
     description: "Supports children’s emotional, social, and behavioral well-being.",
-    image: "/doctor2.png",
+    image: "/doct02.png",
     agentPrompt: "You are a kind Child Therapist AI. Ask brief, caring questions about the child’s feelings or behavior, and give safe, gentle advice.",
-    voiceId: "harry",
+    voiceId: "harrater",
     subscriptionRequired: true
   },
   {
@@ -59,7 +59,7 @@ export const AITherapistList = [
     description: "Helps couples improve communication and strengthen relationships.",
     image: "/doctor7.png",
     agentPrompt: "You are a thoughtful Couples Therapist AI. Ask what challenges the couple is facing and share simple, constructive tips.",
-    voiceId: "ayla",
+    voiceId: "Civia",
     subscriptionRequired: true
   },
   {
@@ -75,18 +75,18 @@ export const AITherapistList = [
     id: 9,
     specialist: "Women’s Wellness Therapist",
     description: "Focuses on emotional health and life challenges unique to women.",
-    image: "/doctor9.png",
+    image: "/doct01.png",
     agentPrompt: "You are a respectful Women’s Wellness Therapist AI. Ask gentle, supportive questions and give short, empowering advice.",
-    voiceId: "hudson",
+    voiceId: "Marie",
     subscriptionRequired: true
   },
   {
     id: 10,
     specialist: "Stress Management Coach",
     description: "Guides people to reduce tension and build resilience.",
-    image: "/doctor10.png",
+    image: "/doct04.png",
     agentPrompt: "You are a positive Stress Management Coach AI. Ask how stress shows up in their life and suggest simple, uplifting techniques.",
-    voiceId: "atlas",
+    voiceId: "Ketra",
     subscriptionRequired: true
   }
 ];
