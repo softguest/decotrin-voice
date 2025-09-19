@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Check } from "lucide-react";
+import Link from "next/link";
 
 const PsychotherapyHighlight = () => {
   const benefits = [
@@ -25,7 +26,6 @@ const PsychotherapyHighlight = () => {
               <div className="absolute inset-0 bg-gradient-to-tr from-primary/10 to-transparent rounded-2xl"></div>
             </div>
           </div>
-
           {/* Content */}
           <div className="order-1 lg:order-2">
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
@@ -52,12 +52,16 @@ const PsychotherapyHighlight = () => {
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg" variant="default">
-                Start a Voice Session
-              </Button>
-              <Button size="lg" variant="outline">
-                See How It Works
-              </Button>
+              <Link href="/dashboard">
+                <Button size="lg" variant="default">
+                  Start a Voice Session
+                </Button>
+              </Link>
+              <Link href="/dashboard">
+                <Button size="lg" variant="outline">
+                  See How It Works
+                </Button>
+              </Link>
             </div>
           </div>
         </div>

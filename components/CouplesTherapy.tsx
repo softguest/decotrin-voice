@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Check } from "lucide-react";
+import Link from "next/link";
 
 const CouplesTherapy = () => {
   const benefits = [
@@ -40,12 +41,16 @@ const CouplesTherapy = () => {
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg" variant="therapeutic">
-                Start a Couples Session
-              </Button>
+              <Link href="/dashboard">
+                <Button size="lg" variant="therapeutic">
+                  Start a Couples Session
+                </Button>
+              </Link>
+              <Link href="/dashboard">
               <Button size="lg" variant="outline">
-                See How It Works
-              </Button>
+                  See How It Works
+                </Button>
+              </Link>
             </div>
           </div>
 

@@ -40,7 +40,7 @@ const ConsultationForm = () => {
                 <Headphones className="w-5 h-5 text-primary" />
                 <span className="text-foreground font-medium">Available 24/7</span>
               </div>
-              <Link href="/signup">
+              <Link href="/dashboard">
                 <Button variant="therapeutic" size="lg" className="w-full">
                   Create Free Account
                 </Button>
@@ -58,14 +58,14 @@ const ConsultationForm = () => {
                 Sign up in less than a minute and unlock unlimited access to AI-powered 
                 therapy sessions, personalized reports, and 24/7 emotional support.
               </p>
-              <Link href="/signup" className="w-full">
+              <Link href="/dashboard" className="w-full">
                 <Button size="lg" className="w-full">
                   Sign Up & Start Session
                 </Button>
               </Link>
               <p className="text-sm text-muted-foreground py-2">
                 Already have an account?{" "}
-                <Link href="/login" className="text-primary hover:underline">
+                <Link href="/dashboard" className="text-primary hover:underline">
                   Login
                 </Link>
               </p>
