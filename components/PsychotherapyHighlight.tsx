@@ -26,6 +26,7 @@ const PsychotherapyHighlight = () => {
               <div className="absolute inset-0 bg-gradient-to-tr from-primary/10 to-transparent rounded-2xl"></div>
             </div>
           </div>
+          
           {/* Content */}
           <div className="order-1 lg:order-2">
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">

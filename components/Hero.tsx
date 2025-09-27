@@ -49,7 +49,7 @@ const Hero = () => {
           
           <p className="text-xl md:text-2xl text-white mb-6 mt-4 mx-auto">
             Decotrin connects you with AI-powered voice agents for<br/> 
-            instant therapy sessions, meaningful conversations,<br/> 
+            instant trauma therapy sessions, meaningful conversations,<br/> 
             and personalized session reports — whenever you need them.
           </p>
 
