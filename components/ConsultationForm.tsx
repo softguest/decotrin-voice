@@ -18,6 +18,7 @@ const ConsultationForm = () => {
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
             Start Your AI-Powered Therapy Journey
           </h2>
+
           <p className="text-lg text-white mb-8">
             With Decotrin, you can connect to an AI voice agent anytime, have 
             real conversations, and receive a personalized session report — 
@@ -72,7 +73,7 @@ const ConsultationForm = () => {
             </CardContent>
           </Card>
         </div>
-      </div>
+       </div>
     </section>
   );
 };

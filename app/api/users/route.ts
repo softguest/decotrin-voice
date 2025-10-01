@@ -11,18 +11,17 @@ export async function POST(req: NextRequest) {
     // check if the user already exists
         const users = await db.select().from(usersTable)
         //@ts-ignore
-        .where(eq(usersTable.email, user?.primaryEmailAddress?.emailAddress));
+        .where(eq(usersTable.email,user?.primaryEmailAddress?.emailAddress));
         // if not create a new user
         if(users?.length == 0 ) {
             const result = await db.insert(usersTable).values({
                 name:user?.fullName || "No name",
                 email:user?.primaryEmailAddress?.emailAddress || "No email",
-                credits: 10
+                credits:10
                 //@ts-ignore
 
             }).returning({ usersTable })
-            
-            return NextResponse.json(result);
+            return NextResponse.json(result[0]?.usersTable);
         }
         return NextResponse.json(users[0]);
     } 
