@@ -26,27 +26,6 @@ const ConsultationForm = () => {
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left side - Text content */}
-          <div>
-            {/* Free AI session CTA */}
-            <div className="bg-card rounded-xl p-6 shadow-card">
-              <h3 className="text-xl font-semibold text-white mb-4">
-                Try a Free Voice Session
-              </h3>
-              <p className="text-muted-foreground mb-4">
-                Experience the future of therapy with a 10-minute free session 
-                with one of our AI voice agents.
-              </p>
-              <div className="flex items-center space-x-3 mb-4">
-                <Headphones className="w-5 h-5 text-primary" />
-                <span className="text-foreground font-medium">Available 24/7</span>
-              </div>
-              <Link href="/dashboard">
-                <Button variant="therapeutic" size="lg" className="w-full">
-                  Create Free Account
-                </Button>
-              </Link>
-            </div>
-          </div>
 
           {/* Right side - Card with redirect CTA */}
           <Card className="shadow-card bg-card/95 backdrop-blur-sm flex flex-col items-center justify-center text-center p-10">
@@ -59,7 +38,7 @@ const ConsultationForm = () => {
                 therapy sessions, personalized reports, and 24/7 emotional support.
               </p>
               <Link href="/dashboard" className="w-full">
-                <Button size="lg" className="w-full">
+                <Button size="lg" variant="therapeutic" className="w-full">
                   Sign Up & Start Session
                 </Button>
               </Link>
