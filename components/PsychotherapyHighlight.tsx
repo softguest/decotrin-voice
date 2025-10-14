@@ -4,11 +4,11 @@ import Link from "next/link";
 
 const PsychotherapyHighlight = () => {
   const benefits = [
-    "Instant access to AI-powered voice therapy agents anytime",
-    "Engaging real-time conversations designed for emotional support",
-    "Personalized session reports with actionable insights",
-    "Confidential and secure platform for your well-being",
-    "Flexible sessions — no appointments required"
+    "Real-time, 24/7 AI-guided voice therapy",
+    "Natural, empathetic conversations for emotional healing",
+    "Personalized post-session reports for self-reflection",
+    "Designed for stress, trauma, and self-growth support",
+    "Private and completely secure"
   ];
 
   return (
@@ -33,10 +33,14 @@ const PsychotherapyHighlight = () => {
               AI-Powered Therapy That’s Always There for You
             </h2>
             <p className="text-lg text-muted-foreground mb-8">
-              Decotrin lets you connect with AI voice agents for therapy 
+              Decotrin makes emotional support accessible through real-time 
+              AI voice therapy.You can talk through difficult moments, practice 
+              mindfulness, or get relationship guidance — all with instant 
+              feedback and progress tracking.
+              {/* Decotrin lets you connect with AI voice agents for therapy 
               anytime you need it. Have meaningful conversations in real-time 
               and receive personalized reports that help you track your growth 
-              and well-being over time.
+              and well-being over time. */}
             </p>
 
             {/* Benefits List */}
@@ -55,10 +59,10 @@ const PsychotherapyHighlight = () => {
             <div className="flex flex-col sm:flex-row gap-4">
               <Link href="/dashboard">
                 <Button size="lg" variant="default">
-                  Start a Voice Session
+                  Start Your First Session
                 </Button>
               </Link>
-              <Link href="/dashboard">
+              <Link href="#">
                 <Button size="lg" variant="outline">
                   See How It Works
                 </Button>

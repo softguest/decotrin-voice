@@ -5,22 +5,22 @@ const TherapyProcess = () => {
     {
       icon: UserPlus,
       title: "Sign Up",
-      description: "Create your free Decotrin account in minutes and get started right away."
+      description: "Create your free account in under a minute."
     },
     {
       icon: Mic,
       title: "Start a Session",
-      description: "Connect instantly with an AI-powered voice agent for real-time therapy."
+      description: "Instantly connect with your AI therapy."
     },
     {
       icon: MessageCircle,
       title: "Have a Conversation",
-      description: "Engage in natural voice-based conversations designed to support your emotional well-being."
+      description: "Speak openly and explore your emotions."
     },
     {
       icon: FileText,
       title: "Get Your Report",
-      description: "Receive a personalized session report with insights and recommendations after every session."
+      description: "Receive a personalized summary and healing insights after every session."
     }
   ];
 
@@ -32,8 +32,8 @@ const TherapyProcess = () => {
             How Decotrin Works
           </h2>
           <p className="text-lg text-muted-foreground">
-            Simple, seamless, and available anytime you need support. 
-            Get therapy in four easy steps — all powered by AI voice agents.
+            Simple, safe, and supportive therapy in four quick steps
+            all powered by AI voice agents.
           </p>
         </div>
 

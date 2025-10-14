@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Heart, MessageCircle, Calendar } from "lucide-react";
+import Link from "next/link";
 
 const Hero = () => {
   const ctaCards = [
@@ -9,21 +10,27 @@ const Hero = () => {
       title: "AI Voice Therapy",
       description: "Talk to AI-powered voice agents anytime you need support.",
       href: "#voice-therapy",
-      bgColor: "bg-transparent"
+      bgColor: "bg-transparent",
+      bottonText: "🎙️ Start a Free Session",
+      bottonLink: "/sign-up"
     },
     {
       icon: MessageCircle,
       title: "Real-Time Sessions",
       description: "Engage in live, natural conversations for healing and growth.",
       href: "#real-time",
-      bgColor: "bg-transparent"
+      bgColor: "bg-transparent",
+      bottonText: "🧘 Login to Continue",
+      bottonLink: "/sign-in"
     },
     {
       icon: Calendar,
       title: "Session Reports",
       description: "Receive personalized insights at the end of every session.",
       href: "#reports",
-      bgColor: "bg-[#005f59]"
+      bgColor: "bg-[#005f59]",
+      bottonText: "Start a session",
+      bottonLink: "/dashboard"
     }
   ];
 
@@ -43,14 +50,17 @@ const Hero = () => {
           <h4 className="text-2xl font-bold text-[#52b7bd]">Your AI Therapy Companion</h4>
           <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">
             Real-Time Voice Therapy
-            <span className="text-white block">Available Anytime</span>
+            <span className="text-white block">Anytime You Need to Talk</span>
           </h1>
           <div className="w-64 h-2 bg-[linear-gradient(to_right,#ff9245,#ff9245_50%,transparent_90%)] rounded-full"></div>
           
           <p className="text-xl md:text-2xl text-white mb-6 mt-4 mx-auto">
-            Decotrin connects you with AI-powered voice agents for<br/> 
+            Decotrin connects you with caring AI voice companions for<br/>
+            instant trauma therapy sessions, supportive conversations, and<br/>
+            personalized healing reports — available anytime, anywhere.
+            {/* Decotrin connects you with AI-powered voice agents for<br/> 
             instant trauma therapy sessions, meaningful conversations,<br/> 
-            and personalized session reports — whenever you need them.
+            and personalized session reports — whenever you need them. */}
           </p>
 
           {/* CTA Cards */}
@@ -67,9 +77,11 @@ const Hero = () => {
                       <h3 className="text-3xl font-semibold text-white mb-2">{card.title}</h3>
                     </div>
                     <p className="text-white mb-4">{card.description}</p>
-                    <Button variant="outline" size="sm" className="group-hover:border-primary group-hover:text-primary">
-                      Get A Session!
-                    </Button>
+                    <Link href={card.bottonLink}>
+                      <Button variant="outline" size="sm" className="group-hover:border-primary group-hover:text-primary">
+                        {card.bottonText}
+                      </Button>
+                    </Link>
                   </CardContent>
                 </Card>
               );

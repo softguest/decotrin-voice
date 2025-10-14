@@ -14,9 +14,8 @@ const Newsletter = () => {
               Join the Decotrin Community
             </h2>
             <p className="text-xl text-primary-foreground/90 mb-8">
-              Get exclusive tips, insights, and resources to maximize your AI-powered 
-              therapy sessions. Learn practical strategies for emotional well-being 
-              and self-growth — delivered straight to your inbox.
+              Get exclusive tips and emotional wellness insights directly in your inbox.
+              Learn simple strategies for self-growth, stress recovery, and mindful living.
             </p>
             
             {/* Newsletter form */}
@@ -35,6 +34,7 @@ const Newsletter = () => {
                   <Mail className="w-5 h-5 mr-2" />
                   Subscribe
                 </Button>
+                
               </div>
               <p className="text-muted-foreground text-sm mt-4">
                 We respect your privacy. Unsubscribe anytime.

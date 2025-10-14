@@ -4,11 +4,10 @@ import Link from "next/link";
 
 const CouplesTherapy = () => {
   const benefits = [
-    "Practice healthier communication with guided AI voice sessions",
-    "Learn conflict resolution strategies together in real-time",
-    "Receive session reports highlighting key insights as a couple",
-    "Strengthen trust and emotional connection through shared reflection",
-    "Build a foundation of positive relationship habits with ongoing support"
+    "Practice healthy communication with AI guidance",
+    "Resolve conflicts through calm, reflective dialogue",
+    "Strengthen emotional connection and understanding",
+    "Receive customized insights after every session",
   ];
 
   return (
@@ -21,10 +20,9 @@ const CouplesTherapy = () => {
               Strengthen Your Relationship with AI-Guided Sessions
             </h2>
             <p className="text-lg text-muted-foreground mb-8">
-              Decotrin offers couples a supportive way to grow together. 
-              Engage in real-time AI voice sessions designed to improve communication, 
-              resolve conflicts, and help you build lasting relationship patterns — 
-              all with personalized reports after each session.
+              Decotrin supports both individuals and couples through 
+              real-time guided conversations designed to rebuild trust,
+              manage conflict, and strengthen connection.
             </p>
 
             {/* Benefits List */}
@@ -43,7 +41,7 @@ const CouplesTherapy = () => {
             <div className="flex flex-col sm:flex-row gap-4">
               <Link href="/dashboard">
                 <Button size="lg" variant="therapeutic">
-                  Start a Couples Session
+                  Try a Couples Session →
                 </Button>
               </Link>
               <Link href="/dashboard">

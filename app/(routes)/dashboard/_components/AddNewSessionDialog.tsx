@@ -11,7 +11,7 @@ import {
 } from '@/components/ui/dialog'
 import { Button } from '@/components/ui/button'
 import { Textarea } from '@/components/ui/textarea'
-import { ArrowRight, Loader2 } from 'lucide-react'
+import { ArrowRight, Loader2, Loader2Icon } from 'lucide-react'
 import { therapistAgent } from './TherapistAgentCard'
 import { useRouter } from 'next/navigation'
 import axios from 'axios'
@@ -19,6 +19,7 @@ import { useAuth } from '@clerk/nextjs'
 import HistoryList from './HistoryList'
 import SuggestedTherapistCard from './SuggestedTherapistCard'
 import { SessionDetail } from '../therapy-agent/[sessionId]/page'
+import { IconArrowRight } from '@tabler/icons-react'
 
 const AddNewSessionDialog = () => {
   const [note, setNote] = useState<string>()
@@ -163,7 +164,7 @@ const AddNewSessionDialog = () => {
                 <Loader2 className="animate-spin w-5 h-5" />
               ) : (
                 <>
-                  <span className='font-bold'>Start Therapy</span> <ArrowRight className="w-4 h-4" />
+                  <span className='font-bold'>Start Therapy</span> {loading?<Loader2Icon className='animate-spin'/> : <IconArrowRight />}
                 </>
               )}
             </Button>

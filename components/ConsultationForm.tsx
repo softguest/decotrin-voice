@@ -20,9 +20,8 @@ const ConsultationForm = () => {
           </h2>
 
           <p className="text-lg text-white mb-8">
-            With Decotrin, you can connect to an AI voice agent anytime, have 
-            real conversations, and receive a personalized session report — 
-            all from the comfort of your space.
+            With Decotrin, you can begin therapy from anywhere — instantly.
+            Talk with your AI companion, gain insight, and track your progress over time.
           </p>
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
